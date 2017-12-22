@@ -90,7 +90,7 @@ def shutdown():
  microboshinstance = 0
  for res in reservations:
      for inst in res.instances:
-            if (inst.state == "running" and inst.vpc_id == vpc_id):
+            if (inst.state == "running" and inst.vpc_id == vpc_id and inst.tags.has_key('Name')):
              instTagName = inst.tags['Name']
              print "Adding instancename for shutdown:" + instTagName + " : " + inst.id 
              instanceid.append(inst.id)
